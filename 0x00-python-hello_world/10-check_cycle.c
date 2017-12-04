@@ -66,6 +66,8 @@ int check_address(size_t *array, listint_t *list, int size)
 {
 	int i;
 
+	if (list == NULL)
+		return (0);
 	for (i = 0; i < size; i++)
 	{
 		if (array[i] == (size_t)list)
