@@ -21,6 +21,10 @@ int check_cycle(listint_t *list)
 	address_array[0] = (size_t)list;
 	for (size = 1; list != NULL; size++)
 	{
+		/*Adding space to the array*/
+		array = add_to_array(&address_array, size + 1);
+		if (array == 0)
+			return (0);
 		/*Checking if an address exist on the array*/
 		value = check_address(array, list->next, size - 1);
 		if (value == 1)
@@ -28,10 +32,6 @@ int check_cycle(listint_t *list)
 			free(array);
 			return (1);
 		}
-		/*Adding space to the array*/
-		array = add_to_array(&address_array, size + 1);
-		if (array == 0)
-			return (0);
 		/*Adding address to the array*/
 		array[size - 1] = (size_t)list;
 		list = list->next;
