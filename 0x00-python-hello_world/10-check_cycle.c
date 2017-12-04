@@ -13,7 +13,7 @@ int check_cycle(listint_t *list)
 	head = list;
 	tmp = list;
 
-	while(tmp != NULL && head->next->next != NULL)
+	while(tmp != NULL && head->next != NULL && head->next->next != NULL)
 	{
 		head = head->next->next;
 		tmp = tmp->next;
