@@ -48,6 +48,8 @@ int check_cycle(listint_t *list)
  */
 size_t *add_to_array(size_t **address_array, int size)
 {
+	if (address_array == NULL)
+		return (0);
 	*address_array = realloc(*address_array, size * sizeof(size_t));
 	if (*address_array == NULL)
 		return (0);
