@@ -1,4 +1,4 @@
-#!/usr/bin/pyhton3
+#!/usr/bin/python3
 def uppercase(str):
     for l in str:
         print("{}".format(chr(ord(l) - 32)
