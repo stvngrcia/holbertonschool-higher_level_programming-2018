@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import random
-flag = 0
 number = random.randint(-10000, 10000)
+flag = 0
 grater_five = "and is greater than 5"
 zero = "and is 0"
 less_six = "and is less than 6 and not 0"
