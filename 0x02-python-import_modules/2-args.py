@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 from sys import argv
 
+
 def arguments():
     arg_string = "arguments"
     c_or_d = "."
     length = len(argv) - 1
     if (length == 1):
         arg_string = "argument"
-    if (length -1 >= 0):
+    if (length - 1 >= 0):
         c_or_d = ":"
 
     print("{} {}{}".format(length, arg_string, c_or_d,))
