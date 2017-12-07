@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-print("#pythoniscool")
+import os
+os.system('echo "#pythoniscool"')
