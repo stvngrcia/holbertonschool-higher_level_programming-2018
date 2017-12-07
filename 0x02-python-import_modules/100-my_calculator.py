@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 
-
 def my_calc():
     operations = {"+": add, "-": sub, "*": mul, "/": div}
     length = len(argv) - 1
