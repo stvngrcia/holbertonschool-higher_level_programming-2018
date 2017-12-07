@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-str("#pythoniscool")
+import os; os.system('echo "#pythoniscool"')
