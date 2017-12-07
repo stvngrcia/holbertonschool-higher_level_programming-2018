@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-import txt
+__import__("txt")
