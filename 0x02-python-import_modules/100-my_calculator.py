@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from sys import argv
+
 
 
 def my_calc():
@@ -22,4 +22,5 @@ def my_calc():
 
 if __name__ == "__main__":
     from calculator_1 import add, sub, mul, div
+    from sys import argv
     my_calc()
