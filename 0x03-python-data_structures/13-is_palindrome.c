@@ -51,8 +51,10 @@ int compare_lists(listint_t *head, listint_t *middle, int len)
 
 	if (head == NULL || middle == NULL)
 		return (1);
-	for (i = 0; i < len; i++)
+	for (i = 0; i < len && len > 0; i++)
 	{
+		printf("head %d\n", head->n);
+		printf("middle %d\n", middle->n);
 		if (head->n != middle->n)
 			return (0);
 		head = head->next;
