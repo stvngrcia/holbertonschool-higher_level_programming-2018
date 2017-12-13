@@ -1,4 +1,8 @@
 #include "lists.h"
+#include <stdio.h>
+void reverse(listint_t **head);
+int compare_lists(listint_t *head, listint_t *middle, int len);
+
 /**
  * is_palindrome - Checks if a singly linked list is a palindrome.
  * @head: Pointer to pointer of the first node in listint_t list.
@@ -6,31 +10,78 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *h;
+	int len;
+	int i;
 	listint_t *tmp;
-	listint_t *tmp2;
+	listint_t *middle;
 
 	if (head == NULL || *head == NULL)
 		return (1);
-	h = *head;
 	tmp = *head;
+	middle = *head;
 
-	/*set tmp to the last node*/
-	while (tmp->next != NULL)
+	for (len = 0; tmp != NULL; len++)
 		tmp = tmp->next;
 
-	while (h != tmp)
+	len = len / 2;
+
+	for (i = 1; i < len; i++)
+		middle = middle->next;
+	if (len % 2 != 0)
 	{
-		tmp2 = h;
-		if (h->n != tmp->n)
+		middle = middle->next;
+		len = len - 1;
+	}
+	reverse(&middle);
+	i = compare_lists(*head, middle, len);
+
+	return (i);
+}
+
+/**
+ * compare_lists - Compares two lists.
+ * @head: Pointer to the head node.
+ * @middle: Pointer to the middle node.
+ * @len: legth of the lists.
+ * Return: If the lists are the same 1. Otherwise 0.
+ */
+int compare_lists(listint_t *head, listint_t *middle, int len)
+{
+	int i;
+
+	if (head == NULL || middle == NULL)
+		return (1);
+	for (i = 0; i <= len; i++)
+	{
+		if (head->n != middle->n)
 			return (0);
-		/*Moving tmp2 to the node before tmp*/
-		while (tmp2->next != tmp)
-			tmp2 = tmp2->next;
-		tmp = tmp2;
-		if (h == tmp)
-			break;
-		h = h->next;
+		head = head->next;
+		middle = middle->next;
 	}
 	return (1);
+}
+
+/**
+ * reverse - Reverses a linked list.
+ * @head: Pointer to the pointer of the head of a linked list.
+ */
+void reverse(listint_t **head)
+{
+	listint_t *current;
+	listint_t *next;
+	listint_t *prev;
+
+	if (head == NULL || *head == NULL)
+		return;
+
+	prev = NULL;
+	current = *head;
+	while (current != NULL)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+	*head = prev;
 }
