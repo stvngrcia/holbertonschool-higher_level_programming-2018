@@ -27,7 +27,7 @@ int is_palindrome(listint_t **head)
 
 	for (i = 1; i < len; i++)
 		middle = middle->next;
-	if (len % 2 != 0)
+	if (len % 2 != 0 && len != 1)
 	{
 		middle = middle->next;
 		len = len - 1;
@@ -51,7 +51,7 @@ int compare_lists(listint_t *head, listint_t *middle, int len)
 
 	if (head == NULL || middle == NULL)
 		return (1);
-	for (i = 0; i <= len; i++)
+	for (i = 0; i < len; i++)
 	{
 		if (head->n != middle->n)
 			return (0);
