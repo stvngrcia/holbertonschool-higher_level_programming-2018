@@ -1,3 +1,4 @@
+#!/usr/bin/pyton3
 class Node():
     '''Describes a node
         Args:
