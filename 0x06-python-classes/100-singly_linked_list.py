@@ -70,7 +70,7 @@ class SinglyLinkedList():
     def __str__(self):
         tmp = self.__head
         if tmp is None:
-            return (str(None))
+            return ("")
         while tmp.next_node is not None and tmp:
             print(tmp.data)
             tmp = tmp.next_node
