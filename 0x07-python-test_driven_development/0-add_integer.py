@@ -4,6 +4,8 @@
    a (int | float)
    b (int | float)
 '''
+
+
 def add_integer(a, b):
     '''
         Adds two integers

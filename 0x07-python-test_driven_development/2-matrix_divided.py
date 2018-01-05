@@ -4,13 +4,15 @@
     matrix (list)
     div (division factor)
 '''
+
+
 def matrix_divided(matrix, div):
     '''
         divides a matrix value by a divisor
     '''
     new_matrix = []
     try:
-        length  = len(matrix[0])
+        length = len(matrix[0])
     except:
         pass
     int_err = "matrix must be a matrix(list of lists) of integers/floats"
