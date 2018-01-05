@@ -1,5 +1,13 @@
 #!/usr/bin/python3
+'''
+    Divides matrix by a divisor
+    matrix (list)
+    div (division factor)
+'''
 def matrix_divided(matrix, div):
+    '''
+        divides a matrix value by a divisor
+    '''
     new_matrix = []
     try:
         length  = len(matrix[0])
