@@ -5,6 +5,11 @@ Traceback (most recent call last):
     ...
 TypeError: first_name must be a string
 
+>>> say_my_name(1, 1)
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
 >>> say_my_name("steven", 1)
 Traceback (most recent call last):
     ...
@@ -14,4 +19,4 @@ TypeError: last_name must be a string
 My name is steven garcia
 
 >>> say_my_name("steven")
-My name is steven 
+My name is steven
