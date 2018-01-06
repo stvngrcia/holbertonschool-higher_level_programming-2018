@@ -1,0 +1,81 @@
+>>> matrix_mul  = __import__('100-matrix_mul').matrix_mul
+
+first matrix is not a list
+>>> ma = "hello"
+>>> mb = [[1, 2, 3]]
+
+>>> matrix_mul(ma, mb)
+Traceback (most recent call last):
+    ...
+TypeError: m_a must be a list
+
+second matrix is not a list
+>>> mb = "hello"
+>>> ma = [[1, 2, 3], [4, 5, 6]]
+
+>>> matrix_mul(ma, mb)
+Traceback (most recent call last):
+    ...
+TypeError: m_b must be a list
+
+first matrix is empty
+>>> ma =[]
+>>> mb = [[1, 2, 3], [4, 5, 6]]
+
+>>> matrix_mul(ma, mb)
+Traceback (most recent call last):
+    ...
+ValueError: m_a can't be empty
+
+second matrix is empty
+>>> mb =[]
+>>> ma = [[1, 2, 3], [4, 5, 6]]
+
+>>> matrix_mul(ma, mb)
+Traceback (most recent call last):
+    ...
+ValueError: m_b can't be empty
+
+
+one element of the first matrix is not an int or a float
+>>> ma = [[1, 2, "hi"], [4, 5, 6]]
+>>> mb = [[1, 2, 3], [4, 5, 6]]
+
+>>> matrix_mul(ma, mb)
+Traceback (most recent call last):
+    ...
+TypeError: m_a should contain only integers or floats
+
+one element of the second matrix is not an int or a float
+>>> mb = [[1, 2, "hi"], [4, 5, 6]]
+>>> ma = [[1, 2, 3], [4, 5, 6]]
+
+>>> matrix_mul(ma, mb)
+Traceback (most recent call last):
+    ...
+TypeError: m_b should contain only integers or floats
+
+row in the matrix are not the same size
+>>> ma = [[1, 2, 3], [4, 5]]
+>>> mb = [[1, 2, 3], [4, 5, 6]]
+
+>>> matrix_mul(ma, mb)
+Traceback (most recent call last):
+    ...
+TypeError: each row of m_a must should be of the same size
+
+>>> mb = [[1, 2, 3], [4, 5]]
+>>> ma = [[1, 2, 3], [4, 5, 6]]
+
+>>> matrix_mul(ma, mb)
+Traceback (most recent call last):
+    ...
+TypeError: each row of m_b must should be of the same size
+
+>>> mb = [[1, 2, 3], [4, 5, 6]]
+>>> ma = [[1, 2, 3]]
+
+>>> matrix_mul(ma, mb)
+Traceback (most recent call last):
+    ...
+ValueError: m_a and m_b can't be multiplied
