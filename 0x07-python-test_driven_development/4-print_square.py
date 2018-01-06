@@ -13,4 +13,4 @@ def print_square(size):
         raise ValueError("size must be >= 0")
     for c in range(size):
         square += "#" * size + "\n"
-    print (square, end="")
+    print(square, end="")
