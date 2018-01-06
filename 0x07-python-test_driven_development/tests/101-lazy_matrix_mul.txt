@@ -1,0 +1,80 @@
+>>> matrix_mul  = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+first matrix is not a list
+>>> ma = "hello"
+>>> mb = [[1, 2, 3]]
+
+>>> matrix_mul(ma, mb)
+Traceback (most recent call last):
+    ...
+ValueError: Scalar operands are not allowed, use '*' instead
+
+second matrix is not a list
+>>> mb = "hello"
+>>> ma = [[1, 2, 3], [4, 5, 6]]
+
+>>> matrix_mul(ma, mb)
+Traceback (most recent call last):
+    ...
+ValueError: Scalar operands are not allowed, use '*' instead
+
+first matrix is empty
+>>> ma =[]
+>>> mb = [[1, 2, 3], [4, 5, 6]]
+
+>>> matrix_mul(ma, mb)
+Traceback (most recent call last):
+    ...
+ValueError: shapes (0,) and (2,3) not aligned: 0 (dim 0) != 2 (dim 0)
+
+second matrix is empty
+>>> mb =[]
+>>> ma = [[1, 2, 3], [4, 5, 6]]
+
+>>> matrix_mul(ma, mb)
+Traceback (most recent call last):
+    ...
+ValueError: shapes (2,3) and (0,) not aligned: 3 (dim 1) != 0 (dim 0)
+
+
+one element of the first matrix is not an int or a float
+>>> ma = [[1, 2, "hi"], [4, 5, 6]]
+>>> mb = [[1, 2, 3], [4, 5, 6]]
+
+>>> matrix_mul(ma, mb)
+Traceback (most recent call last):
+    ...
+ValueError: shapes (2,3) and (2,3) not aligned: 3 (dim 1) != 2 (dim 0)
+
+one element of the second matrix is not an int or a float
+>>> mb = [[1, 2, "hi"], [4, 5, 6]]
+>>> ma = [[1, 2, 3], [4, 5, 6]]
+
+>>> matrix_mul(ma, mb)
+Traceback (most recent call last):
+ValueError: shapes (2,3) and (2,3) not aligned: 3 (dim 1) != 2 (dim 0)
+
+row in the matrix are not the same size
+>>> ma = [[1, 2, 3], [4, 5]]
+>>> mb = [[1, 2, 3], [4, 5, 6]]
+
+>>> matrix_mul(ma, mb)
+Traceback (most recent call last):
+    ...
+ValueError: setting an array element with a sequence.
+
+>>> mb = [[1, 2, 3], [4, 5]]
+>>> ma = [[1, 2, 3], [4, 5, 6]]
+
+>>> matrix_mul(ma, mb)
+Traceback (most recent call last):
+    ...
+ValueError: setting an array element with a sequence.
+
+>>> mb = [[1, 2, 3], [4, 5, 6]]
+>>> ma = [[1, 2, 3]]
+
+>>> matrix_mul(ma, mb)
+Traceback (most recent call last):
+    ...
+ValueError: shapes (1,3) and (2,3) not aligned: 3 (dim 1) != 2 (dim 0)
