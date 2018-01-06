@@ -1,5 +1,14 @@
 #!/usr/bin/python3
+'''
+    scans a text looking for a ? : or . to then print new lines.
+    text (str) The string to be parsed
+'''
+
+
 def text_indentation(text):
+    '''
+        Created new lines based on ? : or .
+    '''
     buf = ""
     if not isinstance(text, str):
         raise TypeError("text must be a string")
