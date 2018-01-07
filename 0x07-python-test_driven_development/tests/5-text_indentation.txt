@@ -25,7 +25,7 @@ TypeError: text must be a string
 >>> text_indentation(text)
 hello
 
->>> text = "I.?: Am.? Glad."
+>>> text = "I.?: Am.?     Glad."
 >>> text_indentation(text)
 I.
 <BLANKLINE>
@@ -44,3 +44,9 @@ Glad.
 .
 <BLANKLINE>
 hello
+
+>>> text_indentation("   ")
+<BLANKLINE>
+
+>>> text_indentation("")
+
