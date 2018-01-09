@@ -90,4 +90,4 @@ class Rectangle:
         '''
             printing a message with instance is deleted
         '''
-        print("Bye rectangle…")
+        print("Bye rectangle...")
