@@ -95,5 +95,5 @@ class Rectangle:
         '''
             printing a message with instance is deleted
         '''
-        print("Bye rectangle…")
+        print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
