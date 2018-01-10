@@ -49,3 +49,16 @@ class TestMaxInteger(unittest.TestCase):
             Testing with negative numbers
         '''
         self.assertEqual(max_integer([-10, -100, -6, -3, -1]), -1)
+
+    def test_begining(self):
+        '''
+            Testing with all the list values equal to each other
+        '''
+        self.assertEqual(max_integer([100, 1, 1, 1]), 1)
+
+    def test_one(self):
+        '''
+            Testing with all the list values equal to each other
+        '''
+        self.assertEqual(max_integer([1]), 1)
+
