@@ -15,11 +15,9 @@ def matrix_divided(matrix, div):
         length = len(matrix[0])
     except:
         pass
-    int_err = "matrix must be a matrix(list of lists) of integers/floats"
+    int_err = "matrix must be a matrix (list of lists) of integers/floats"
     if div == 0:
         raise ZeroDivisionError("division by zero")
-    if not isinstance(div, int):
-        raise TypeError("div must be a number")
 
     for row in matrix:
         new_row = []
