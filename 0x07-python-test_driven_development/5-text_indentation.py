@@ -21,4 +21,4 @@ def text_indentation(text):
             print()
             buf = ""
     if len(buf) != 0:
-        print(buf,end="")
+        print(buf, end="")
