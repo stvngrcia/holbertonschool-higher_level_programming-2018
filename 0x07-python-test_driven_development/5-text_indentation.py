@@ -21,6 +21,9 @@ def text_indentation(text):
             print()
             buf = ""
     if len(buf) != 0:
-        while buf[0] == " ":
-            buf = buf[1:]
+        try:
+            while buf[0] == " ":
+                buf = buf[1:]
+        except:
+            pass
         print(buf, end="")
