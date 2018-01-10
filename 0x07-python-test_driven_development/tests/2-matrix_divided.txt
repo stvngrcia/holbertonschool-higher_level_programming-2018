@@ -25,7 +25,7 @@ Sending a string instead of an integer
 >>> matrix_divided(matrix, 2)
 Traceback (most recent call last):
     ...
-TypeError: matrix must be a matrix(list of lists) of integers/floats
+TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 >>> matrix = [1, 2]
 
@@ -33,7 +33,7 @@ Sending a list
 >>> matrix_divided(matrix, 2)
 Traceback (most recent call last):
     ...
-TypeError: matrix must be a matrix(list of lists) of integers/floats
+TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 >>> matrix_divided([[3, 9], [15, 3]], "3")
 Traceback (most recent call last):
@@ -43,4 +43,4 @@ TypeError: div must be a number
 >>> matrix_divided([[3, "9"], [15, 3]], 3)
 Traceback (most recent call last):
     ...
-TypeError: matrix must be a matrix(list of lists) of integers/floats
+TypeError: matrix must be a matrix (list of lists) of integers/floats
