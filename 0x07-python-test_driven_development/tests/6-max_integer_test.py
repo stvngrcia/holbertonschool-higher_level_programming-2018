@@ -44,13 +44,6 @@ class TestMaxInteger(unittest.TestCase):
         with self.assertRaises(TypeError):
             max_integer([1, "hello", 2, 3])
 
-    def test_floats(self):
-        '''
-            Testing with values in the list that are floats
-        '''
-        with self.assertRaises(TypeError):
-            max_integer([1, 5.0, 2, 3])
-
     def test_only_negatives(self):
         '''
             Testing with negative numbers
