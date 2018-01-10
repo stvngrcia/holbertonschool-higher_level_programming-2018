@@ -19,13 +19,6 @@ class TestMaxInteger(unittest.TestCase):
         '''
         self.assertEqual(max_integer([1, 6, 100, 4, 0, -1, 10]), 100)
 
-    def test_no_list(self):
-        '''
-            Testing a parameter that is not a list
-        '''
-        with self.assertRaises(TypeError):
-            max_integer("Not a list")
-
     def test_empty_list(self):
         '''
             Testing an empty list parameter
