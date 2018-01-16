@@ -5,7 +5,7 @@
 >>> bg.integer_validator("str", "str")
 Traceback (most recent call last):
     ...
-TypeError: str must be an  integer
+TypeError: str must be an integer
 
 
 >>> bg.integer_validator("str", -104)
@@ -32,3 +32,7 @@ SyntaxError: invalid syntax
 
 >>> bg.integer_validator("", 1)
 
+>>> bg.integer_validator("string", True)
+Traceback (most recent call last):
+    ...
+TypeError: string must be an integer
