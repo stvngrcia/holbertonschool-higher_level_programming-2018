@@ -36,3 +36,13 @@ SyntaxError: invalid syntax
 Traceback (most recent call last):
     ...
 TypeError: string must be an integer
+
+>>> bg.integer_validator("string", 10.76)
+Traceback (most recent call last):
+    ...
+TypeError: string must be an integer
+
+>>> bg.integer_validator("", True)
+Traceback (most recent call last):
+    ...
+TypeError:  must be an integer
