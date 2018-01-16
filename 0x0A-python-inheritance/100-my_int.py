@@ -2,9 +2,12 @@
 '''
     Class that takes an integers
 '''
+
+
 class MyInt:
     def __init__(self, number):
         self.number = number
+
     def __ne__(self, val):
         return (self.number == val)
 
