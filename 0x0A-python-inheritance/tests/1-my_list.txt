@@ -1,0 +1,47 @@
+>>> MyList = __import__('1-my_list').MyList
+>>> my_list = MyList()
+>>> print (my_list)
+[]
+>>> my_list.print_sorted()
+[]
+
+>>> my_list.append(1)
+>>> my_list.append(1)
+>>> my_list.append(1)
+>>> my_list.append(1)
+>>> my_list.append(1)
+>>> my_list.append(1)
+>>> print(my_list)
+[1, 1, 1, 1, 1, 1]
+>>> my_list.print_sorted()
+[1, 1, 1, 1, 1, 1]
+
+>>> my = MyList()
+>>> my.append(183)
+>>> print (my)
+[183]
+>>> my.print_sorted()
+[183]
+
+>>> my_l = MyList()
+>>> my_l.append(1)
+>>> my_l.append(4)
+>>> my_l.append(2)
+>>> my_l.append(3)
+>>> my_l.append(5)
+>>> print(my_l)
+[1, 4, 2, 3, 5]
+>>> my_l.print_sorted()
+[1, 2, 3, 4, 5]
+>>> print(my_l)
+[1, 4, 2, 3, 5]
+
+>>> myl = MyList()
+>>> myl.append(4)
+>>> myl.append(-11)
+>>> print(myl)
+[4, -11]
+>>> myl.print_sorted()
+[-11, 4]
+>>> print(myl)
+[4, -11]
