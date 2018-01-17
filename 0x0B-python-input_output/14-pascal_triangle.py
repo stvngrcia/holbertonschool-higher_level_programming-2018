@@ -8,7 +8,6 @@ def pascal_triangle(n):
                  the pascal triangle of n
     '''
     matrix = []
-
     for row in range(n):
         tmp_list = [0] * (row + 1)
         tmp_list[0] = 1
