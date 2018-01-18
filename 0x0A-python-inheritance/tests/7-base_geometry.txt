@@ -22,7 +22,7 @@ ValueError: str must be greater than 0
 >>> bg.integer_validator("str",)
 Traceback (most recent call last):
     ...
-TypeError: integer_validator() takes exactly 3 arguments (2 given)
+TypeError: integer_validator() missing 1 required positional argument: 'value'
 
 
 >>> bg.integer_validator(,1)

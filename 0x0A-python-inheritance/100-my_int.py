@@ -4,7 +4,7 @@
 '''
 
 
-class MyInt:
+class MyInt(int):
     def __init__(self, number):
         self.number = number
 
