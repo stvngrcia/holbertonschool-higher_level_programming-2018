@@ -14,10 +14,12 @@ def print_status():
 
     for l in sys.stdin:
         line = l.split()
-        size += int(line[-1])
-        code = line[-2]
-        status_codes[code] += 1
-
+        try:
+            size += int(line[-1])
+            code = line[-2]
+            status_codes[code] += 1
+        except:
+            continue
         if counter == 9:
             print("File size: {}".format(size))
             for key, val in sorted(status_codes.items()):
