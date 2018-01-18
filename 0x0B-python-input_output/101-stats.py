@@ -17,14 +17,14 @@ def print_status():
             for code, val in status_codes.items():
                 if (code in l):
                     status_codes[code] = val + 1
+            my_list = l.split()
+            file_size += int(my_list[-1])
             if counter == 10:
                 print("File size: {:d}".format(file_size))
                 for code, val in sorted(status_codes.items()):
                     if (val != 0):
                         print("{}: {}".format(code, val))
                         counter = 0
-            my_list = l.split()
-            file_size += int(my_list[-1])
         except KeyboardInterrupt:
             print("File size: {:d}".format(file_size))
             for code, val in status_codes.items():
