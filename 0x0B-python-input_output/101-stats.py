@@ -20,14 +20,14 @@ def print_status():
 
         if counter == 9:
             print("File size: {}".format(size))
-            for key, val in status_codes.items():
+            for key, val in sorted(status_codes.items()):
                 if (val != 0):
                     print("{}: {}".format(key, val))
             counter = 0
         counter += 1
     if counter < 9:
         print("File size: {}".format(size))
-        for key, val in status_codes.items():
+        for key, val in sorted(status_codes.items()):
             if (val != 0):
                 print("{}: {}".format(key, val))
 
