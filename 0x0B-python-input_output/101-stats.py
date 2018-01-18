@@ -30,6 +30,12 @@ def print_status():
             for code, val in status_codes.items():
                     if (val != 0):
                         print("{}: {}".format(code, val))
+    if counter < 9:
+            print("File size: {:d}".format(file_size))
+            for code, val in status_codes.items():
+                    if (val != 0):
+                        print("{}: {}".format(code, val))
+
 
 if __name__ == "__main__":
     print_status()
