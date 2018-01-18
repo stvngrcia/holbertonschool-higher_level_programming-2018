@@ -19,7 +19,7 @@ def print_status():
                     status_codes[code] = val + 1
             if counter == 10:
                 print("File size: {:d}".format(file_size))
-                for code, val in status_codes.items():
+                for code, val in sorted(status_codes.items()):
                     if (val != 0):
                         print("{}: {}".format(code, val))
                         counter = 0
