@@ -2,6 +2,8 @@
 '''
     Creating the base class of all other classes for this project.
 '''
+
+
 class Base:
     '''
         This class will manage the id attribute for all the classes.
@@ -10,6 +12,7 @@ class Base:
     '''
 
     __nb_objects = 0
+
     def __init__(self, id=None):
         if id is not None:
             self.id = id
