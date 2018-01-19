@@ -86,6 +86,15 @@ class Rectangle(Base):
         '''
         return (self.height * self.width)
 
+    def display(self):
+        '''
+            Prints to stdout the representation of the rectangle
+        '''
+        rectangle = ""
+        for i in range(self.height):
+            rectangle += ("#" * self.width) + "\n"
+        print(rectangle, end="")
+
     @staticmethod
     def setter_validation(attribute, value):
         if type(value) != int:
