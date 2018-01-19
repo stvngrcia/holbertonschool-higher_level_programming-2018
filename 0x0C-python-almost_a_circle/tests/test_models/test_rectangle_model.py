@@ -59,7 +59,8 @@ class test_rectangle(unittest.TestCase):
         '''
             Test the id for Rectangle
         '''
-        self.assertEqual(2, self.r.id)
+        rect = Rectangle(1, 3, 0, 0, 199)
+        self.assertEqual(199, rect.id)
 
     def test_width_string(self):
         '''
@@ -214,3 +215,11 @@ class test_rectangle(unittest.TestCase):
         '''
         with self.assertRaises(TypeError):
             rect = Rectangle(5, 5, 8, 1.07)
+
+    def test_area(self):
+        '''
+            Testing the area of the rectangle
+        '''
+        self.assertEqual(self.r.area(), 5 * 10)
+        rect = Rectangle(3, 9, 8, 8, 2)
+        self.assertEqual(rect.area(), 3 * 9)
