@@ -96,6 +96,19 @@ class Rectangle(Base):
             rectangle += (" " * self.x) + ("#" * self.width) + "\n"
         print(rectangle, end="")
 
+    def update(self, *args):
+        '''
+            Updates the arguments in the class
+        '''
+        try:
+            self.id = args[0]
+            self.width = args[1]
+            self.height = args[2]
+            self.x = args[3]
+            self.y = args[4]
+        except IndexError:
+            pass
+
     @staticmethod
     def setter_validation(attribute, value):
         if type(value) != int:
@@ -107,5 +120,8 @@ class Rectangle(Base):
             raise ValueError("{} must be > 0".format(attribute))
 
     def __str__(self):
+        '''
+            Overwritting the ste method
+        '''
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
                                                        self.width, self.height)
