@@ -262,3 +262,20 @@ class test_rectangle(unittest.TestCase):
         '''
         self.r.update(54, 30, 10, 6, 2)
         self.assertEqual(2, self.r.y)
+
+    def test_update_dict(self):
+        '''
+            Testing the update method with **kwargs
+        '''
+        self.r.update(y=1, width=2, x=3, id=89)
+        self.assertEqual(1, self.r.y)
+        self.assertEqual(2, self.r.width)
+        self.assertEqual(3, self.r.x)
+        self.assertEqual(89, self.r.id)
+
+    def test_update_dict_list(self):
+        '''
+            Testing the update method with **kwargs and *args
+        '''
+        self.r.update(1000, y=1, width=2, x=3, id=89)
+        self.assertEqual(1000, self.r.id)
