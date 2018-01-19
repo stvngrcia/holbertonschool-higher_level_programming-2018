@@ -227,3 +227,38 @@ class test_rectangle(unittest.TestCase):
     def test_str_overload(self):
         r = Rectangle(5, 10, 8, 7, 88)
         self.assertEqual(r.__str__(), "[Rectangle] (88) 8/7 - 5/10")
+
+    def test_update_id(self):
+        '''
+            Testing the update method
+        '''
+        self.r.update(54)
+        self.assertEqual(54, self.r.id)
+
+    def test_update_width(self):
+        '''
+            Testing the update method
+        '''
+        self.r.update(54, 30)
+        self.assertEqual(30, self.r.width)
+
+    def test_update_height(self):
+        '''
+            Testing the update method
+        '''
+        self.r.update(54, 30, 10)
+        self.assertEqual(10, self.r.height)
+
+    def test_update_x(self):
+        '''
+            Testing the update method
+        '''
+        self.r.update(54, 30, 10, 6)
+        self.assertEqual(6, self.r.x)
+
+    def test_update_y(self):
+        '''
+            Testing the update method
+        '''
+        self.r.update(54, 30, 10, 6, 2)
+        self.assertEqual(2, self.r.y)
