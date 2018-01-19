@@ -60,3 +60,157 @@ class test_rectangle(unittest.TestCase):
             Test the id for Rectangle
         '''
         self.assertEqual(2, self.r.id)
+
+    def test_width_string(self):
+        '''
+            Testing for other than int
+        '''
+        with self.assertRaises(TypeError):
+            rect = Rectangle("1", 5)
+
+    def test_width_bool(self):
+        '''
+            Testing for other than int
+        '''
+        with self.assertRaises(TypeError):
+            rect = Rectangle(True, 5)
+
+    def test_width_list(self):
+        '''
+            Testing for other than int
+        '''
+        with self.assertRaises(TypeError):
+            rect = Rectangle([10, 6], 5)
+
+    def test_height_string(self):
+        '''
+            Testing for other than int
+        '''
+        with self.assertRaises(TypeError):
+            rect = Rectangle(1, "5")
+
+    def test_height_bool(self):
+        '''
+            Testing for other than int
+        '''
+        with self.assertRaises(TypeError):
+            rect = Rectangle(1, True)
+
+    def test_height_list(self):
+        '''
+            Testing for other than int
+        '''
+        with self.assertRaises(TypeError):
+            rect = Rectangle(5, [10, 6])
+
+    def test_x_string(self):
+        '''
+            Testing for other than int
+        '''
+        with self.assertRaises(TypeError):
+            rect = Rectangle(1, 5, "46")
+
+    def test_x_bool(self):
+        '''
+            Testing for other than int
+        '''
+        with self.assertRaises(TypeError):
+            rect = Rectangle(1, 5, True)
+
+    def test_x_list(self):
+        '''
+            Testing for other than int
+        '''
+        with self.assertRaises(TypeError):
+            rect = Rectangle(1, 5, [10, 6])
+
+    def test_y_string(self):
+        '''
+            Testing for other than int
+        '''
+        with self.assertRaises(TypeError):
+            rect = Rectangle(1, 5, 7, "46")
+
+    def test_y_bool(self):
+        '''
+            Testing for other than int
+        '''
+        with self.assertRaises(TypeError):
+            rect = Rectangle(1, 5, 7, True)
+
+    def test_x_list(self):
+        '''
+            Testing for other than int
+        '''
+        with self.assertRaises(TypeError):
+            rect = Rectangle(1, 5, 7, [10, 6])
+
+    def test_width_negative(self):
+        '''
+            Testing with negative int
+        '''
+        with self.assertRaises(ValueError):
+            rect = Rectangle(-4, 5)
+
+    def test_height_negative(self):
+        '''
+            Testing with negative int
+        '''
+        with self.assertRaises(ValueError):
+            rect = Rectangle(4, -5)
+
+    def test_x_negative(self):
+        '''
+            Testing with negative int
+        '''
+        with self.assertRaises(ValueError):
+            rect = Rectangle(4, 5, -3)
+
+    def test_y_negative(self):
+        '''
+            Testing with negative int
+        '''
+        with self.assertRaises(ValueError):
+            rect = Rectangle(4, 5, 2, -3)
+
+    def test_width_zero(self):
+        '''
+            Testing with negative int
+        '''
+        with self.assertRaises(ValueError):
+            rect = Rectangle(0, 5)
+
+    def test_height_zero(self):
+        '''
+            Testing with negative int
+        '''
+        with self.assertRaises(ValueError):
+            rect = Rectangle(8, 0)
+
+    def test_width_float(self):
+        '''
+            Testing for other than int
+        '''
+        with self.assertRaises(TypeError):
+            rect = Rectangle(1.07, 5)
+
+    def test_height_float(self):
+        '''
+            Testing for other than int
+        '''
+        with self.assertRaises(TypeError):
+            rect = Rectangle(5, 1.07)
+
+    def test_x_float(self):
+        '''
+            Testing for other than int
+        '''
+        with self.assertRaises(TypeError):
+            rect = Rectangle(5, 8, 1.07)
+
+    def test_y_float(self):
+        '''
+            Testing for other than int
+        '''
+        with self.assertRaises(TypeError):
+            rect = Rectangle(5, 5, 8, 1.07)
