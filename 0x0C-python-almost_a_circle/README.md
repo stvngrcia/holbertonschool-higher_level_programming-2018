@@ -25,5 +25,5 @@ This project is a review of the following Python concepts:
 
 [unittest module](https://docs.python.org/3.4/library/unittest.html#module-unittest)
 
-[Python test cheatsheet]
-(https://www.pythonsheets.com/notes/python-tests.html)
+[Python test cheatsheet](https://www.pythonsheets.com/notes/python-tests.html)
+
