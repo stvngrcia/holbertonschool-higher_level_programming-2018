@@ -223,3 +223,7 @@ class test_rectangle(unittest.TestCase):
         self.assertEqual(self.r.area(), 5 * 10)
         rect = Rectangle(3, 9, 8, 8, 2)
         self.assertEqual(rect.area(), 3 * 9)
+
+    def test_str_overload(self):
+        r = Rectangle(5, 10, 8, 7, 88)
+        self.assertEqual(r.__str__(), "[Rectangle] (88) 8/7 - 5/10")
