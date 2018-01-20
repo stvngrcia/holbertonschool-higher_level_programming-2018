@@ -47,6 +47,15 @@ class Square(Rectangle):
         except IndexError:
             pass
 
+    def to_dictionary(self):
+        '''
+            Returns a dictionary representation of this class
+        '''
+        return {"id": getattr(self, "id"),
+                "x": getattr(self, "x"),
+                "size": getattr(self, "size"),
+                "y": getattr(self, "y")}
+
     def __str__(self):
         '''
             Overwritting the ste method

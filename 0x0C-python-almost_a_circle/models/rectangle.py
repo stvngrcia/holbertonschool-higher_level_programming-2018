@@ -113,6 +113,16 @@ class Rectangle(Base):
         except IndexError:
             pass
 
+    def to_dictionary(self):
+        '''
+            Returns a dictionary representation of this class
+        '''
+        return {"x": getattr(self, "x"),
+                "y": getattr(self, "y"),
+                "id": getattr(self, "id"),
+                "height": getattr(self, "height"),
+                "width": getattr(self, "width")}
+
     @staticmethod
     def setter_validation(attribute, value):
         if type(value) != int:

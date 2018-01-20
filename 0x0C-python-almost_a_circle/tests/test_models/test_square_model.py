@@ -243,7 +243,6 @@ class test_square(unittest.TestCase):
             Testing the update method with **kwargs
         '''
         self.s.update(y=1, size=2, xox=3, id=89)
-        print(self.s.__dir__())
 
     def test_update_string(self):
         '''
@@ -251,3 +250,27 @@ class test_square(unittest.TestCase):
         '''
         self.s.update("str")
         self.assertEqual(self.s.id, "str")
+
+
+    def test_to_dict(self):
+        '''
+            Testing the type that is returned from the to_dictionary method
+        '''
+        r1 = Square(5)
+        self.assertEqual(type(r1.to_dictionary()), dict)
+
+    def test_to_dict_print(self):
+        '''
+            Testing the dict that will be printed
+        '''
+        r1 = Square(5,0, 0, 410)
+        r1_dict = r1.to_dictionary()
+        self.assertEqual(r1_dict,
+                        {'size': 5, 'id': 410, 'x': 0, 'y': 0})
+
+    def test_missing_height(self):
+        '''
+            Expecting a type error because height and width are missing
+        '''
+        with self.assertRaises(TypeError):
+            Square()
