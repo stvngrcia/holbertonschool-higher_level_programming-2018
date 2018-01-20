@@ -125,7 +125,7 @@ class Rectangle(Base):
 
     def __str__(self):
         '''
-            Overwritting the ste method
+            Overwritting the str method
         '''
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
                                                        self.width, self.height)
