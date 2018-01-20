@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import json
 '''
     Creating the base class of all other classes for this project.
 '''
@@ -19,3 +20,11 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    def to_json_string(list_dictionaries):
+        '''
+            Converting a dict into a json string
+        '''
+        if list_dictionaries is None:
+            return "[]"
+        return json.dumps(list_dictionaries)
