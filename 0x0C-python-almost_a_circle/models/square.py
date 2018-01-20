@@ -14,7 +14,6 @@ class Square(Rectangle):
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
 
-
     @property
     def size(self):
         '''
@@ -31,9 +30,25 @@ class Square(Rectangle):
         self.width = val
         self.height = val
 
+    def update(self, *args, **kwargs):
+        '''
+            Updates the arguments in the class
+        '''
+        if len(args) == 0:
+            for key, val in kwargs.items():
+                self.__setattr__(key, val)
+            return
+        try:
+            self.id = args[0]
+            self.size = args[1]
+            self.x = args[2]
+            self.y = args[3]
+        except IndexError:
+            pass
+
     def __str__(self):
         '''
             Overwritting the ste method
         '''
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
-                                                    self.width)
+                                                 self.width)
