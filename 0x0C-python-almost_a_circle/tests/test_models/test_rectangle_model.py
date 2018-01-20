@@ -294,7 +294,7 @@ class test_rectangle(unittest.TestCase):
         r1 = Rectangle(5, 4, 0, 0, 400)
         r1_dict = r1.to_dictionary()
         self.assertEqual(r1_dict,
-                        {'height': 4, 'id': 400, 'width': 5, 'x': 0, 'y': 0})
+                         {'height': 4, 'id': 400, 'width': 5, 'x': 0, 'y': 0})
 
     def test_missing_height(self):
         '''

@@ -251,7 +251,6 @@ class test_square(unittest.TestCase):
         self.s.update("str")
         self.assertEqual(self.s.id, "str")
 
-
     def test_to_dict(self):
         '''
             Testing the type that is returned from the to_dictionary method
@@ -263,10 +262,10 @@ class test_square(unittest.TestCase):
         '''
             Testing the dict that will be printed
         '''
-        r1 = Square(5,0, 0, 410)
+        r1 = Square(5, 0, 0, 410)
         r1_dict = r1.to_dictionary()
         self.assertEqual(r1_dict,
-                        {'size': 5, 'id': 410, 'x': 0, 'y': 0})
+                         {'size': 5, 'id': 410, 'x': 0, 'y': 0})
 
     def test_missing_height(self):
         '''
