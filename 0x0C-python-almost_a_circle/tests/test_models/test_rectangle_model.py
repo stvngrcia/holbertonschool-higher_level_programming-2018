@@ -311,6 +311,7 @@ class test_rectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rectangle(1)
 
+    # write these tests for square as well
     def test_saving_to_file(self):
         '''
             Testing saving a file into json format
@@ -365,3 +366,24 @@ class test_rectangle(unittest.TestCase):
             content = file.read()
 
         self.assertEqual(str, type(content))
+
+        def test_json_string_type(self):
+            '''
+                Testing the returned type
+            '''
+            list_input = [
+                {'id': 2089, 'width': 10, 'height': 4},
+                {'id': 2712, 'width': 1, 'height': 7}]
+            json_list_input = Rectangle.to_json_string(list_input)
+            list_output = Rectangle.from_json_string(json_list_input)
+            self.assertEqual(type(list_input), list)
+
+        def test_json_string(self):
+            list_input = [
+                {'id': 2089, 'width': 10, 'height': 4},
+                {'id': 2712, 'width': 1, 'height': 7}]
+            json_list_input = Rectangle.to_json_string(list_input)
+            list_output = Rectangle.from_json_string(json_list_input)
+            self.assertEqual(list_input, "[{'id': 89,\
+                                           'width': 10, 'height': 4},\
+                                        {'id': 7, 'width': 1, 'height': 7}]")
