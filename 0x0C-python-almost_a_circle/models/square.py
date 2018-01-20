@@ -51,10 +51,10 @@ class Square(Rectangle):
         '''
             Returns a dictionary representation of this class
         '''
-        return {"id": getattr(self, "id"),
-                "x": getattr(self, "x"),
-                "size": getattr(self, "size"),
-                "y": getattr(self, "y")}
+        return {'id': getattr(self, "id"),
+                'x': getattr(self, "x"),
+                'size': getattr(self, "size"),
+                'y': getattr(self, "y")}
 
     def __str__(self):
         '''
