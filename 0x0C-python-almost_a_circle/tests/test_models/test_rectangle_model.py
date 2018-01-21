@@ -413,3 +413,75 @@ class test_rectangle(unittest.TestCase):
         r1_dictionary = r1.to_dictionary()
         r2 = Rectangle.create(**r1_dictionary)
         self.assertIsNot(r1, r2)
+
+    def test_load_from_file_not_the_same(self):
+        '''
+            Checking that an object was created from the
+            list but has a different adress.
+        '''
+        r1 = Rectangle(10, 7, 2, 8)
+        list_rectangles_input = [r1]
+
+        Rectangle.save_to_file(list_rectangles_input)
+
+        list_rectangles_output = Rectangle.load_from_file()
+
+        self.assertNotEqual(id(r1), id(list_rectangles_output[0]))
+
+
+    def test_load_from_file_same_width(self):
+        '''
+            Checking that an object was created from the
+            list and has the same witdh
+        '''
+        r1 = Rectangle(10, 7, 2, 8)
+        list_rectangles_input = [r1]
+
+        Rectangle.save_to_file(list_rectangles_input)
+
+        list_rectangles_output = Rectangle.load_from_file()
+
+        self.assertEqual(r1.width, list_rectangles_output[0].width)
+
+    def test_load_from_file_same_height(self):
+        '''
+            Checking that an object was created from the
+            list and has the same height
+        '''
+        r1 = Rectangle(10, 7, 2, 8)
+        list_rectangles_input = [r1]
+
+        Rectangle.save_to_file(list_rectangles_input)
+
+        list_rectangles_output = Rectangle.load_from_file()
+
+        self.assertEqual(r1.height, list_rectangles_output[0].height)
+
+    def test_load_from_file_same_x(self):
+        '''
+            Checking that an object was created from the
+            list and has the same x
+        '''
+        r1 = Rectangle(10, 7, 2, 8)
+        list_rectangles_input = [r1]
+
+        Rectangle.save_to_file(list_rectangles_input)
+
+        list_rectangles_output = Rectangle.load_from_file()
+
+        self.assertEqual(r1.x, list_rectangles_output[0].x)
+
+
+    def test_load_from_file_same_y(self):
+        '''
+            Checking that an object was created from the
+            list and has the same y
+        '''
+        r1 = Rectangle(10, 7, 2, 8)
+        list_rectangles_input = [r1]
+
+        Rectangle.save_to_file(list_rectangles_input)
+
+        list_rectangles_output = Rectangle.load_from_file()
+
+        self.assertEqual(r1.y, list_rectangles_output[0].y)
