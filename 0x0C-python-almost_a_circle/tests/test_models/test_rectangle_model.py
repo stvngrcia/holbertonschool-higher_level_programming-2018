@@ -366,8 +366,12 @@ class test_rectangle(unittest.TestCase):
             content = file.read()
 
         self.assertEqual(str, type(content))
+        try:
+            os.remove("Rectangle.json")
+        except:
+            pass
 
-        def test_json_string_type(self):
+    def test_json_string_type(self):
             '''
                 Testing the returned type
             '''
@@ -378,12 +382,34 @@ class test_rectangle(unittest.TestCase):
             list_output = Rectangle.from_json_string(json_list_input)
             self.assertEqual(type(list_input), list)
 
-        def test_json_string(self):
+    def test_json_string(self):
+            '''
+                Testing that the json string gets converted into a list
+            '''
             list_input = [
                 {'id': 2089, 'width': 10, 'height': 4},
                 {'id': 2712, 'width': 1, 'height': 7}]
             json_list_input = Rectangle.to_json_string(list_input)
             list_output = Rectangle.from_json_string(json_list_input)
-            self.assertEqual(list_input, "[{'id': 89,\
-                                           'width': 10, 'height': 4},\
-                                        {'id': 7, 'width': 1, 'height': 7}]")
+            s1 = {'id': 2089, 'width': 10, 'height': 4}
+            s2 = {'height': 7, 'id': 2712, 'width': 1}
+            self.assertEqual(list_input[0], s1)
+            self.assertEqual(list_input[1], s2)
+
+    def test_dict_to_instance(self):
+        '''
+            test that an instance is created from a dict
+        '''
+        r1 = Rectangle(5, 8, 3)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertNotEqual(r1, r2)
+
+    def test_isnot_dict_to_instance(self):
+        '''
+            test that an instance is created from a dict
+        '''
+        r1 = Rectangle(109, 80, 76)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertIsNot(r1, r2)
