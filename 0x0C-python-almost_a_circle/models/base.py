@@ -98,5 +98,3 @@ class Base:
             instances.append(tmp)
 
         return instances
-
-

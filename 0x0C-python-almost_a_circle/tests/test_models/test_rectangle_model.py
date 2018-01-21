@@ -428,7 +428,6 @@ class test_rectangle(unittest.TestCase):
 
         self.assertNotEqual(id(r1), id(list_rectangles_output[0]))
 
-
     def test_load_from_file_same_width(self):
         '''
             Checking that an object was created from the
@@ -470,7 +469,6 @@ class test_rectangle(unittest.TestCase):
         list_rectangles_output = Rectangle.load_from_file()
 
         self.assertEqual(r1.x, list_rectangles_output[0].x)
-
 
     def test_load_from_file_same_y(self):
         '''
