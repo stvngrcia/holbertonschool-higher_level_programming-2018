@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import unittest
 from models.square import Square
+import os
 
 '''
     Runs test cases for the square module
@@ -23,6 +24,10 @@ class test_square(unittest.TestCase):
         '''
             Deleting created instance
         '''
+        try:
+            os.remove("Square.json")
+        except:
+            pass
         del self.s
 
     def test_width(self):
@@ -273,3 +278,175 @@ class test_square(unittest.TestCase):
         '''
         with self.assertRaises(TypeError):
             Square()
+
+    def test_saving_to_file(self):
+        '''
+            Testing saving a file into json format
+        '''
+        try:
+            os.remove("Square.json")
+        except:
+            pass
+        r1 = Square(5, 0, 0, 346)
+        Square.save_to_file([r1])
+
+        with open("Square.json", "r") as file:
+            content = file.read()
+        t = '[{"id": 346, "x": 0, "size": 5, "y": 0}]'
+        self.assertEqual(t, content)
+
+    def test_saving_to_file_no_iter(self):
+        '''
+            Sending a non iterable to the function
+        '''
+        with self.assertRaises(TypeError):
+            Square.save_to_file(self.s)
+
+    def test_saving_to_file_None(self):
+        '''
+            Testing saving a file into json format sending None
+        '''
+        try:
+            os.remove("Square.json")
+        except:
+            pass
+        r1 = Square(5, 0, 0, 346)
+        Square.save_to_file(None)
+
+        with open("Square.json", "r") as file:
+            content = file.read()
+
+        self.assertEqual("[]", content)
+
+    def test_saving_to_file_type(self):
+        '''
+            Testing saving a file into json format and testing the type
+        '''
+        try:
+            os.remove("Square.json")
+        except:
+            pass
+        r1 = Square(5, 0, 0, 346)
+        Square.save_to_file([r1])
+
+        with open("Square.json", "r") as file:
+            content = file.read()
+
+        self.assertEqual(str, type(content))
+        try:
+            os.remove("Square.json")
+        except:
+            pass
+
+    def test_json_string_type(self):
+            '''
+                Testing the returned type
+            '''
+            list_input = [
+                {'id': 2089, 'size': 10},
+                {'id': 2712, 'size': 1}]
+            json_list_input = Square.to_json_string(list_input)
+            list_output = Square.from_json_string(json_list_input)
+            self.assertEqual(type(list_input), list)
+
+    def test_json_string(self):
+            '''
+                Testing that the json string gets converted into a list
+            '''
+            list_input = [
+                {'id': 2089, 'size': 10},
+                {'id': 2712, 'size': 7}]
+            json_list_input = Square.to_json_string(list_input)
+            list_output = Square.from_json_string(json_list_input)
+            s1 = {'id': 2089, 'size': 10}
+            s2 = {'size': 7, 'id': 2712}
+            self.assertEqual(list_input[0], s1)
+            self.assertEqual(list_input[1], s2)
+
+    def test_dict_to_instance(self):
+        '''
+            test that an instance is created from a dict
+        '''
+        r1 = Square(5)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Square.create(**r1_dictionary)
+        self.assertNotEqual(r1, r2)
+
+    def test_isnot_dict_to_instance(self):
+        '''
+            test that an instance is created from a dict
+        '''
+        r1 = Square(109)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Square.create(**r1_dictionary)
+        self.assertIsNot(r1, r2)
+
+    def test_load_from_file_not_the_same(self):
+        '''
+            Checking that an object was created from the
+            list but has a different adress.
+        '''
+        r1 = Square(10)
+        list_squares_input = [r1]
+
+        Square.save_to_file(list_squares_input)
+
+        list_squares_output = Square.load_from_file()
+
+        self.assertNotEqual(id(r1), id(list_squares_output[0]))
+
+    def test_load_from_file_same_width(self):
+        '''
+            Checking that an object was created from the
+            list and has the same witdh
+        '''
+        r1 = Square(10)
+        list_squares_input = [r1]
+
+        Square.save_to_file(list_squares_input)
+
+        list_squares_output = Square.load_from_file()
+
+        self.assertEqual(r1.width, list_squares_output[0].size)
+
+    def test_load_from_file_same_height(self):
+        '''
+            Checking that an object was created from the
+            list and has the same height
+        '''
+        r1 = Square(10)
+        list_squares_input = [r1]
+
+        Square.save_to_file(list_squares_input)
+
+        list_squares_output = Square.load_from_file()
+
+        self.assertEqual(r1.size, list_squares_output[0].size)
+
+    def test_load_from_file_same_x(self):
+        '''
+            Checking that an object was created from the
+            list and has the same x
+        '''
+        r1 = Square(10, 2, 8)
+        list_squares_input = [r1]
+
+        Square.save_to_file(list_squares_input)
+
+        list_squares_output = Square.load_from_file()
+
+        self.assertEqual(r1.x, list_squares_output[0].x)
+
+    def test_load_from_file_same_y(self):
+        '''
+            Checking that an object was created from the
+            list and has the same y
+        '''
+        r1 = Square(10, 2, 8)
+        list_squares_input = [r1]
+
+        Square.save_to_file(list_squares_input)
+
+        list_squares_output = Square.load_from_file()
+
+        self.assertEqual(r1.y, list_squares_output[0].y)
