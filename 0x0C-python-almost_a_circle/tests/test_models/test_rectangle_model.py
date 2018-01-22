@@ -2,6 +2,9 @@
 import unittest
 import os
 from models.rectangle import Rectangle
+import json
+from io import StringIO
+import sys
 
 '''
     Runs test cases for the Rectangle module
@@ -325,8 +328,8 @@ class test_rectangle(unittest.TestCase):
 
         with open("Rectangle.json", "r") as file:
             content = file.read()
-        t = '[{"x": 0, "y": 0, "id": 346, "height": 10, "width": 5}]'
-        self.assertEqual(t, content)
+        t = [{"x": 0, "y": 0, "id": 346, "height": 10, "width": 5}]
+        self.assertEqual(t, json.loads(content))
 
     def test_saving_to_file_no_iter(self):
         '''
@@ -483,3 +486,45 @@ class test_rectangle(unittest.TestCase):
         list_rectangles_output = Rectangle.load_from_file()
 
         self.assertEqual(r1.y, list_rectangles_output[0].y)
+
+    def test_display_square(self):
+        '''
+            Checking the stdout output by capturing it
+        '''
+        capturedOutput = StringIO()
+        sys.stdout = capturedOutput
+        r1 = Rectangle(10, 4)
+        r1.display()
+        sys.stdout = sys.__stdout__
+
+        output = ("##########\n" +
+                  "##########\n" +
+                  "##########\n" +
+                  "##########\n")
+        self.assertEqual(capturedOutput.getvalue(), output)
+
+    def test_display_square_size_one(self):
+        '''
+            Checking the stdout output by capturing it
+        '''
+        capturedOutput = StringIO()
+        sys.stdout = capturedOutput
+        r1 = Rectangle(1, 2)
+        r1.display()
+        sys.stdout = sys.__stdout__
+
+        output = '#\n#\n'
+        self.assertEqual(capturedOutput.getvalue(), output)
+
+    def test_display_square_size_zero(self):
+        '''
+            Checking the stdout output by capturing it
+        '''
+        capturedOutput = StringIO()
+        sys.stdout = capturedOutput
+        r1 = Rectangle(3, 7)
+        r1.display()
+        sys.stdout = sys.__stdout__
+
+        output = '###\n###\n###\n###\n###\n###\n###\n'
+        self.assertEqual(capturedOutput.getvalue(), output)

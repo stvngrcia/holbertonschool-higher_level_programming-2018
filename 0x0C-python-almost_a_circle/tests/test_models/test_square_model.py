@@ -2,6 +2,10 @@
 import unittest
 from models.square import Square
 import os
+import sys
+import json
+from io import StringIO
+
 
 '''
     Runs test cases for the square module
@@ -292,8 +296,8 @@ class test_square(unittest.TestCase):
 
         with open("Square.json", "r") as file:
             content = file.read()
-        t = '[{"id": 346, "x": 0, "size": 5, "y": 0}]'
-        self.assertEqual(t, content)
+        t = [{"id": 346, "x": 0, "size": 5, "y": 0}]
+        self.assertEqual(t, json.loads(content))
 
     def test_saving_to_file_no_iter(self):
         '''
@@ -450,3 +454,99 @@ class test_square(unittest.TestCase):
         list_squares_output = Square.load_from_file()
 
         self.assertEqual(r1.y, list_squares_output[0].y)
+
+    def test_display_square(self):
+        '''
+            Checking the stdout output by capturing it
+        '''
+        capturedOutput = StringIO()
+        sys.stdout = capturedOutput
+        r1 = Square(10)
+        r1.display()
+        sys.stdout = sys.__stdout__
+
+        output = ("##########\n" +
+                  "##########\n" +
+                  "##########\n" +
+                  "##########\n" +
+                  "##########\n" +
+                  "##########\n" +
+                  "##########\n" +
+                  "##########\n" +
+                  "##########\n" +
+                  "##########\n")
+        self.assertEqual(capturedOutput.getvalue(), output)
+
+    def test_display_square_size_one(self):
+        '''
+            Checking the stdout output by capturing it
+        '''
+        capturedOutput = StringIO()
+        sys.stdout = capturedOutput
+        r1 = Square(1)
+        r1.display()
+        sys.stdout = sys.__stdout__
+
+        output = ("#\n")
+        self.assertEqual(capturedOutput.getvalue(), output)
+
+    def test_display_square_size_zero(self):
+        '''
+            Checking the stdout output by capturing it
+        '''
+        capturedOutput = StringIO()
+        sys.stdout = capturedOutput
+        r1 = Square(3)
+        r1.display()
+        sys.stdout = sys.__stdout__
+
+        output = '###\n###\n###\n'
+        self.assertEqual(capturedOutput.getvalue(), output)
+
+    def test_display_square(self):
+        '''
+            Checking the stdout output by capturing it
+        '''
+        capturedOutput = StringIO()
+        sys.stdout = capturedOutput
+        r1 = Square(10)
+        r1.display()
+        sys.stdout = sys.__stdout__
+
+        output = ("##########\n" +
+                  "##########\n" +
+                  "##########\n" +
+                  "##########\n" +
+                  "##########\n" +
+                  "##########\n" +
+                  "##########\n" +
+                  "##########\n" +
+                  "##########\n" +
+                  "##########\n")
+        self.assertEqual(capturedOutput.getvalue(), output)
+
+    def test_display_square_size_one(self):
+        '''
+            Checking the stdout output by capturing it
+        '''
+        capturedOutput = StringIO()
+        sys.stdout = capturedOutput
+        r1 = Square(1)
+        r1.display()
+        sys.stdout = sys.__stdout__
+
+        output = ("#\n")
+        self.assertEqual(capturedOutput.getvalue(), output)
+
+    def test_display_square_size_zero(self):
+        '''
+            Checking the stdout output by capturing it
+        '''
+        capturedOutput = StringIO()
+        sys.stdout = capturedOutput
+        r1 = Square(3)
+        r1.display()
+        sys.stdout = sys.__stdout__
+
+        output = '###\n###\n###\n'
+        self.assertEqual(capturedOutput.getvalue(), output)
