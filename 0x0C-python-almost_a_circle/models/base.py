@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import json
+import csv
 '''
     Creating the base class of all other classes for this project.
 '''
@@ -146,3 +147,33 @@ class Base:
             turtle.goto(x_cordinate + move_by, 100)
 
         turtle.exitonclick()
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        file_name = cls.__name__ + ".csv"
+
+        with open(file_name, mode="w", newline='', encoding="UTF8") as fd:
+            write_this = csv.writer(fd, delimiter=" ")
+
+            if cls.__name__ == "Rectangle":
+                for item in list_objs:
+                    string = ""
+                    item = item.to_dictionary()
+                    string += (str(item["id"]) + "," +
+                               str(item["width"]) + "," +
+                               str(item["height"]) + "," +
+                               str(item["x"]) + "," + str(item["y"]))
+                    write_this.writerow(string)
+
+            if cls.__name__ == "Square":
+                for item in list_objs:
+                    string = ""
+                    item = item.to_dictionary()
+                    string += (str(item["id"]) + "," +
+                               str(item["size"]) + "," +
+                               str(item["x"]) + "," + str(item["y"]))
+                    write_this.writerow(string)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        return ([])
