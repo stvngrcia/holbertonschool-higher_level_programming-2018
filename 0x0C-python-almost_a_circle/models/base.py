@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-import json
-import csv
 '''
     Creating the base class of all other classes for this project.
 '''
+import json
+import csv
 
 
 class Base:
@@ -33,6 +33,9 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        '''
+            this is my method
+        '''
         if json_string is None or len(json_string) == 0:
             return []
         return json.loads(json_string)
@@ -150,6 +153,9 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
+        '''
+            this is my method
+        '''
         file_name = cls.__name__ + ".csv"
 
         with open(file_name, mode="w", newline='', encoding="UTF8") as fd:
@@ -176,4 +182,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
+        '''
+            this is my method
+        '''
         return ([])

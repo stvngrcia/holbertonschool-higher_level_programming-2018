@@ -496,7 +496,6 @@ class test_rectangle(unittest.TestCase):
         r1 = Rectangle(10, 4)
         r1.display()
         sys.stdout = sys.__stdout__
-
         output = ("##########\n" +
                   "##########\n" +
                   "##########\n" +
