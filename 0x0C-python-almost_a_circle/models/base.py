@@ -81,11 +81,6 @@ class Base:
         '''
             loading dict representing the parameters for
             and instance and from that creating instances
-            then adding those instances to a list that will be
-            later returned.
-
-            If the file does not exist it will return an empty
-            list.
         '''
         file_name = cls.__name__ + ".json"
 
