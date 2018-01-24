@@ -47,18 +47,13 @@ class Base:
             into a file
         '''
         file_name = cls.__name__ + ".json"
-        try:
-            with open(file_name, encoding="UTF8") as fd:
-                content = json.load(fd)
-        except:
-            content = []
+
+        content = []
         if list_objs is not None:
             for item in list_objs:
                 item = item.to_dictionary()
                 json_dict = json.loads(cls.to_json_string(item))
                 content.append(json_dict)
-        else:
-            content = []
 
         with open(file_name, mode="w") as fd:
             json.dump(content, fd)
