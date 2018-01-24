@@ -34,7 +34,7 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         '''
-            this is my method
+            Returns a dict from a string
         '''
         if json_string is None or len(json_string) == 0:
             return []
@@ -86,7 +86,7 @@ class Base:
 
         try:
             with open(file_name, encoding="UTF8") as fd:
-                content = json.load(fd)
+                content = cls.from_json_string(fd.read())
         except:
             return []
 
