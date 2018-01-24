@@ -57,6 +57,8 @@ class Base:
                 item = item.to_dictionary()
                 json_dict = json.loads(cls.to_json_string(item))
                 content.append(json_dict)
+        else:
+            content = []
 
         with open(file_name, mode="w") as fd:
             json.dump(content, fd)
