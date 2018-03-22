@@ -5,7 +5,7 @@ import MySQLdb
 
 def get_states(username, password, db_name, search_value):
     '''
-        ll values in the states table where name matches the argument
+        all values in the states table where name matches the argument
     '''
     db = MySQLdb.connect(host="localhost",
                          user=username,
