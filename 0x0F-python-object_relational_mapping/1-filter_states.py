@@ -18,7 +18,8 @@ def get_states(username, password, db_name):
                    WHERE `name` REGEXP '^N' ORDER BY `id` ASC")
     rows = cursor.fetchall()
     for row in rows:
-        print(row)
+        if ("N" in row[1]):
+            print(row)
     cursor.close()
     db.close()
 
