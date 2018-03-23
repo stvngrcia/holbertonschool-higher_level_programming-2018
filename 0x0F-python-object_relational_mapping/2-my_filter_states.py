@@ -19,7 +19,8 @@ def get_states(username, password, db_name, search_value):
     cursor.execute(bad_query)
     rows = cursor.fetchall()
     for row in rows:
-        print(row)
+        if (row[1] == search_value):
+            print(row)
     cursor.close()
     db.close()
 
