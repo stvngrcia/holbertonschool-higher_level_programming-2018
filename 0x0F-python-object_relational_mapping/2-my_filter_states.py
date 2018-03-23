@@ -14,8 +14,8 @@ def get_states(username, password, db_name, search_value):
                          port=3306)
 
     cursor = db.cursor()
-    bad_query = "SELECT * FROM `states`WHERE `name`=({}) ORDER BY `id` ASC"
-    cursor.execute(bad_query.format(search_value))
+    bad_query = "SELECT * FROM states WHERE name=('{}') ORDER BY id ASC".format(search_value)
+    cursor.execute(bad_query)
     rows = cursor.fetchall()
     for row in rows:
         print(row)
