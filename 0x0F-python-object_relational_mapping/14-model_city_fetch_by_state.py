@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-#!/usr/bin/python3
 """Start link class to table in database
 """
 import sys
@@ -16,12 +15,11 @@ if __name__ == "__main__":
     State.cities = relationship("City",
                                 order_by=City.id, back_populates="state")
     connection = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
-    eng = create_engine(connection.format(user_name, password,db_name),
+    eng = create_engine(connection.format(user_name, password, db_name),
                         pool_pre_ping=True)
     Session = sessionmaker(bind=eng)
     session = Session()
     query = session.query(State, City).\
-                    filter(City.state_id==State.id)\
-                    .all()
+        filter(City.state_id == State.id).all()
     for row in query:
         print("{}: ({}) {}".format(row[0].name, row[1].id, row[1].name))
