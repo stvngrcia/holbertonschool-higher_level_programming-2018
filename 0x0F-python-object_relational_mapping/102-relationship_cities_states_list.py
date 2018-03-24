@@ -16,4 +16,5 @@ if __name__ == "__main__":
     session = Session()
     query = session.query(City).order_by(City.id).all()
     for row in query:
-            print("{}: {} -> {}".format(row.id, row.name, row.state_id))
+            print("{}: {} -> {}".format(row.id, row.name, row.state.name))
+    session.close()
