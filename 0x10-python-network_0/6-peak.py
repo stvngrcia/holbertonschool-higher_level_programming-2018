@@ -7,7 +7,7 @@ def find_peak(nums):
     '''
     length = len(nums)
     if length < 3:
-        return(sorted(nums[-1]))
+        return(max(nums))
 
     for idx in range(1, length):
         if idx + 1 < length:
