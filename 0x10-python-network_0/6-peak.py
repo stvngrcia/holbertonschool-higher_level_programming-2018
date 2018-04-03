@@ -5,13 +5,15 @@ def find_peak(nums):
     '''
         Finds the pick in a list of numbers
     '''
-    length = len(nums)
-    if length < 3:
-        return(max(nums))
+    length = len(nums) - 1
 
-    for idx in range(1, length):
-        if idx + 1 < length:
-            if nums[idx + 1] < nums[idx] and nums[idx - 1] < nums[idx]:
-                pick = nums[idx]
-
+    for idx, value in enumerate(nums):
+        if idx > 0 and idx < length:
+            if nums[idx + 1] < value and nums[idx - 1] < value:
+                pick = value
+        else:
+            if idx == 0 and nums[idx + 1] < value:
+                pick = value
+            elif idx == length and nums[idx - 1] < value:
+                pick = value
     return pick
