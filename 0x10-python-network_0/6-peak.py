@@ -5,6 +5,8 @@ def find_peak(nums):
     '''
         Finds the pick in a list of numbers
     '''
+    if len(nums) == 1:
+        return (nums[0])
     length = len(nums) - 1
 
     for idx, value in enumerate(nums):
