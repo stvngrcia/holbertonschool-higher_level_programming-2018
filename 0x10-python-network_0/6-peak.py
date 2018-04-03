@@ -15,12 +15,11 @@ def find_peak(nums):
 
     for idx in range(0, length):
         value = nums[idx]
-        if idx > 0 and idx < length - 1:
-            if nums[idx + 1] < value and nums[idx - 1] < value:
+        if (idx > 0 and idx < length - 1
+            and nums[idx + 1] < value and nums[idx - 1] < value):
                 pick = value
-        else:
-            if idx == 0 and nums[idx + 1] < value:
-                pick = value
-            elif idx == length - 1 and nums[idx - 1] < value:
-                pick = value
+        elif idx == 0 and nums[idx + 1] < value:
+            pick = value
+        elif idx == length - 1 and nums[idx - 1] < value:
+            pick = value
     return pick
