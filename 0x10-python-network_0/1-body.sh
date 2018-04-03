@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # sends a GET request to the URL, and displays the body of the response
-curl -L $1
+curl -L "$1"
