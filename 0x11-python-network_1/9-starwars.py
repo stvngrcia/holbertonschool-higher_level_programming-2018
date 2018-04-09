@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import sys
 import requests
-import json
 
 if __name__ == "__main__":
     search = sys.argv[1]
