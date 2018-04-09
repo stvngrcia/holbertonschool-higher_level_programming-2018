@@ -4,6 +4,7 @@ import sys
 import requests
 import base64
 
+
 def search_tweets():
     '''
         Script that takes 3 strings
