@@ -13,4 +13,4 @@ if __name__ == "__main__":
     data_top = data[:10]
     for commit in data_top:
         user = commit.get("commit").get("author").get("name")
-        print("{}: {}".format(commit["sha"], user))
+        print("{}: {}".format(commit.get("sha"), user))
