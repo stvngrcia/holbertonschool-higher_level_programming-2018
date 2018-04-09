@@ -17,7 +17,7 @@ def search_tweets():
     api_secret = base64.b64encode(sys.argv[2].encode())
 
     auth = OAuth1(api_key, api_secret)
-    url = ' https://api.twitter.com/1.1/search/tweets.json'
+    url = 'https://api.twitter.com/1.1/search/tweets.json'
     response = requests.get(url, auth=auth)
     print(response.json())
 
