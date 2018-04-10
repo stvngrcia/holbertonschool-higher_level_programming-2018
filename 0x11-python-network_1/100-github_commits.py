@@ -11,9 +11,10 @@ if __name__ == "__main__":
     response = requests.get(url)
     data = response.json()
     count = 0
-    for commit in data_top:
-        user = commit.get("commit").get("author").get("name")
-        print("{}: {}".format(commit.get("sha"), user))
+    for commit in data:
         if count > 9:
             break
+        user = commit.get("commit").get("author").get("name")
+        print("{}: {}".format(commit.get("sha"), user))
+
         count += 1
