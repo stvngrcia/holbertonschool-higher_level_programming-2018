@@ -10,7 +10,10 @@ if __name__ == "__main__":
     url = "https://api.github.com/repos/{}/{}/commits".format(owner, repo_name)
     response = requests.get(url)
     data = response.json()
-    data_top = data[:10]
+    count = 0
     for commit in data_top:
         user = commit.get("commit").get("author").get("name")
         print("{}: {}".format(commit.get("sha"), user))
+        if count > 9:
+            break
+        count += 1
