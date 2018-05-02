@@ -8,7 +8,9 @@ function second (myArray) {
 
   for (let i = 2; i < myArray.length; i++) {
     if (myArray[i] > max) {
+      secondMax = max
       max = myArray[i];
+
     } else if (myArray[i] > secondMax && myArray[i] < max) {
       secondMax = myArray[i];
     }
