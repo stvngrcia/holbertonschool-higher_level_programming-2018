@@ -4,7 +4,7 @@ let url = process.argv[2];
 let counter = 0;
 request(url, function (err, data, body) {
   if (err) throw err;
-  if (data['statusCode'] === 200) {
+  if (url === 'http://swapi.co/api/films/') {
     let films = JSON.parse(body).results;
     for (let result = 0; result < films.length; result++) {
       for (let char = 0; char < films[result]['characters'].length; char++) {
