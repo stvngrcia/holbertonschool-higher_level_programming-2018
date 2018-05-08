@@ -5,8 +5,8 @@ let counter = 0;
 request(url, function (err, data, body) {
   if (err) {
     throw err;
-  } else {
-    let films = JSON.parse(body)['results'];
+  } else if (data['statusCode'] == 200) {
+    let films = JSON.parse(body).results;
     for (let result = 0; result < films.length; result++) {
       for (let char = 0; char < films[result]['characters'].length; char++) {
         if (films[result]['characters'][char] === 'https://swapi.co/api/people/18/') {
@@ -14,6 +14,6 @@ request(url, function (err, data, body) {
         }
       }
     }
+    console.log(counter);
   }
-  console.log(counter);
 });
