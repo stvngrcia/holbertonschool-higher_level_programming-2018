@@ -3,9 +3,7 @@ let request = require('request');
 let url = process.argv[2];
 let counter = 0;
 request(url, function (err, data, body) {
-  if (err) {
-    throw err;
-  } else if (data['statusCode'] == 200) {
+  if (data['statusCode'] === 200) {
     let films = JSON.parse(body).results;
     for (let result = 0; result < films.length; result++) {
       for (let char = 0; char < films[result]['characters'].length; char++) {
@@ -15,5 +13,7 @@ request(url, function (err, data, body) {
       }
     }
     console.log(counter);
+  } else {
+    throw err;
   }
 });
