@@ -3,6 +3,7 @@ let request = require('request');
 let url = process.argv[2];
 let counter = 0;
 request(url, function (err, data, body) {
+  if (err) throw err;
   if (data['statusCode'] === 200) {
     let films = JSON.parse(body).results;
     for (let result = 0; result < films.length; result++) {
