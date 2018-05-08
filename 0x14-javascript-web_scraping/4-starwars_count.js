@@ -11,7 +11,7 @@ request(url, function (err, data, body) {
     for (let result = 0; result < films.length; result++) {
       let characters = films[result]['characters'];
       for (let j = 0; j < characters.length; j++) {
-        if (characters[j] === 'https://swapi.co/api/people/18/') {
+        if (characters[j] === 'https://swapi.co/api/people/18/' || characters[j] === 'http://swapi.co/api/people/18/') {
           counter += 1;
         }
       }
